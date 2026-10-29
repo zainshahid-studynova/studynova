@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Code Playground - StudyNova</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: white;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        nav a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #6b7280;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .playground {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .editor-box,
+        .preview-box {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+            min-width: 0;
+        }
+
+        .box-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .box-title h2 {
+            color: #111827;
+            font-size: 22px;
+        }
+
+        .editor-note {
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            display: block;
+            width: 100%;
+            height: 420px;
+            resize: vertical;
+            background: #111827;
+            color: #e5e7eb;
+            border: none;
+            border-radius: 10px;
+            padding: 16px;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            outline: none;
+            tab-size: 4;
+        }
+
+        textarea:focus {
+            box-shadow: 0 0 0 2px #818cf8;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        button {
+            border: none;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #a5b4fc;
+            outline-offset: 3px;
+        }
+
+        .run-btn {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .run-btn:hover {
+            background: #3730a3;
+        }
+
+        .example-btn {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .clear-btn {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: 420px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .save-status {
+            margin-top: 10px;
+            color: #047857;
+            font-size: 13px;
+            min-height: 18px;
+        }
+
+        .tips {
+            margin-top: 25px;
+            background: #eef2ff;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .tips h2 {
+            color: #3730a3;
+            margin-bottom: 12px;
+        }
+
+        .tips p,
+        .tips li {
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        .tips ul {
+            padding-left: 22px;
+            margin-top: 10px;
+        }
+
+        footer {
+            background: #111827;
+            color: #d1d5db;
+            text-align: center;
+            padding: 28px;
+            margin-top: 50px;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        @media (max-width: 850px) {
+            .playground {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            textarea,
+            iframe {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            header {
+                padding: 16px 5%;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 12px;
+            }
+
+            .editor-box,
+            .preview-box {
+                padding: 14px;
+            }
+
+            .button-row button {
+                flex: 1 1 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">StudyNova 🎓</div>
+
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="course.html">📚 Course</a>
+            <a href="achievements.html">🏆 Achievements</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <h1>HTML & CSS Playground 💻</h1>
+
+            <p>
+                Write your code, run it and see your result instantly.
+                Practise web development at your own pace!
+            </p>
+        </section>
+
+        <section class="playground">
+
+            <!-- CODE EDITOR -->
+
+            <div class="editor-box">
+
+                <div class="box-title">
+                    <h2>Your Code ✍️</h2>
+                </div>
+
+                <p class="editor-note">
+                    Write HTML below. Your work is saved in this browser.
+                </p>
+
+                <textarea
+                    id="codeEditor"
+                    spellcheck="false"
+                    aria-label="HTML code editor"
+                ><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: lightblue;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        h1 {
+            color: purple;
+        }
+
+        button {
+            background: purple;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello StudyNova! 🎓</h1>
+    <p>I am learning web development.</p>
+    <button>My First Button</button>
+</body>
+</html></textarea>
+
+                <div class="button-row">
+                    <button class="run-btn" id="runBtn" type="button">
+                        ▶ Run Code
+                    </button>
+
+                    <button class="example-btn" id="exampleBtn" type="button">
+                        💡 Example
+                    </button>
+
+                    <button class="clear-btn" id="clearBtn" type="button">
+                        🧹 Clear
+                    </button>
+
+                    <button class="reset-btn" id="resetBtn" type="button">
+                        ↩ Reset
+                    </button>
+                </div>
+
+                <p class="save-status" id="saveStatus" aria-live="polite">
+                    Your example code is ready.
+                </p>
+
+            </div>
+
+            <!-- LIVE PREVIEW -->
+
+            <div class="preview-box">
+
+                <div class="box-title">
+                    <h2>Live Preview 👀</h2>
+                </div>
+
+                <iframe
+                    id="preview"
+                    title="Code output preview"
+                    sandbox=""
+                    referrerpolicy="no-referrer"
+                ></iframe>
+
+                <p class="editor-note">
+                    Preview is isolated from the main StudyNova page.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- LEARNING TIPS -->
+
+        <section class="tips">
+            <h2>💡 Practice Tips</h2>
+
+            <p>
+                Make changes in the editor and press
+                <strong>Run Code</strong> to see the result.
+            </p>
+
+            <ul>
+                <li>Change the heading text inside the h1 tag.</li>
+                <li>Try changing the background colour in the CSS.</li>
+                <li>Add a paragraph using the p tag.</li>
+                <li>Use the Example button to restore the sample code.</li>
+                <li>Your latest code is saved in this browser.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p><strong>StudyNova 🎓</strong></p>
+        <p>Learn. Practice. Build.</p>
+        <p>Created by Zain Shahid ❤️</p>
+        <p>© 2026 StudyNova. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        (function () {
+            "use strict";
+
+            const editor = document.getElementById("codeEditor");
+            const preview = document.getElementById("preview");
+            const status = document.getElementById("saveStatus");
+
+            const STORAGE_KEY = "studyNova_playgroundCode";
+
+            const exampleCode = editor.value;
+
+            function runCode() {
+                preview.srcdoc = editor.value;
+
+                status.textContent = "▶ Preview updated.";
+
+                try {
+                    localStorage.setItem(STORAGE_KEY, editor.value);
+                    status.textContent =
+                        "✅ Preview updated. Your code is saved.";
+                } catch (error) {
+                    status.textContent =
+                        "Preview updated, but browser storage is unavailable.";
+                }
+            }
+
+            function loadSavedCode() {
+                try {
+                    const savedCode = localStorage.getItem(STORAGE_KEY);
+
+                    if (savedCode !== null) {
+                        editor.value = savedCode;
+                        status.textContent = "✅ Your previous code was restored.";
+                    }
+                } catch (error) {
+                    status.textContent = "Example code is ready.";
+                }
+
+                preview.srcdoc = editor.value;
+            }
+
+            document.getElementById("runBtn").addEventListener(
+                "click",
+                runCode
+            );
+
+            document.getElementById("exampleBtn").addEventListener(
+                "click",
+                function () {
+                    editor.value = exampleCode;
+                    runCode();
+                    status.textContent = "💡 Example loaded and saved.";
+                }
+            );
+
+            document.getElementById("clearBtn").addEventListener(
+                "click",
+                function () {
+                    editor.value = "";
+                    runCode();
+                    status.textContent = "🧹 Editor cleared.";
+                }
+            );
+
+            document.getElementById("resetBtn").addEventListener(
+                "click",
+                function () {
+                    editor.value = exampleCode;
+                    runCode();
+                    status.textContent = "↩ Example code restored.";
+                }
+            );
+
+            // Save the user's work as they type.
+            editor.addEventListener("input", function () {
+                try {
+                    localStorage.setItem(STORAGE_KEY, editor.value);
+                    status.textContent = "💾 Changes saved in this browser.";
+                } catch (error) {
+                    status.textContent =
+                        "Browser storage is unavailable; press Run Code to preview.";
+                }
+            });
+
+            loadSavedCode();
+        })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lesson 3 - Introduction to CSS - StudyNova</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6fb;
+            color: #222;
+        }
+
+        header {
+            background-color: #4f46e5;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            font-size: 17px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 35px auto;
+            background-color: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #4f46e5;
+            margin-top: 25px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .example {
+            background-color: #f1f5f9;
+            border-left: 5px solid #4f46e5;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .example code {
+            font-size: 16px;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #4f46e5;
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #3730a3;
+        }
+
+        .quiz-btn {
+            background-color: #16a34a;
+        }
+
+        .quiz-btn:hover {
+            background-color: #15803d;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>StudyNova</h1>
+        <p>Lesson 3: Introduction to CSS</p>
+    </header>
+
+    <div class="container">
+
+        <h2>What is CSS?</h2>
+
+        <p>
+            CSS stands for Cascading Style Sheets.
+            It is used to style and design HTML webpages.
+        </p>
+
+        <p>
+            While HTML creates the structure of a webpage,
+            CSS controls how that webpage looks.
+        </p>
+
+        <h2>Why is CSS Important?</h2>
+
+        <p>
+            CSS allows us to change colors, backgrounds, text sizes,
+            spacing and many other visual properties of a webpage.
+        </p>
+
+        <h2>Changing Text Color</h2>
+
+        <p>
+            The CSS property called <strong>color</strong> is used
+            to change the color of text.
+        </p>
+
+        <div class="example">
+            <code>
+                p {
+                <br>
+                &nbsp;&nbsp;color: blue;
+                <br>
+                }
+            </code>
+        </div>
+
+        <h2>Changing Background Color</h2>
+
+        <p>
+            The <strong>background-color</strong> property is used
+            to change the background color of an element.
+        </p>
+
+        <div class="example">
+            <code>
+                body {
+                <br>
+                &nbsp;&nbsp;background-color: lightblue;
+                <br>
+                }
+            </code>
+        </div>
+
+        <h2>Changing Font Size</h2>
+
+        <p>
+            The <strong>font-size</strong> property is used
+            to make text smaller or larger.
+        </p>
+
+        <div class="example">
+            <code>
+                h1 {
+                <br>
+                &nbsp;&nbsp;font-size: 32px;
+                <br>
+                }
+            </code>
+        </div>
+
+        <h2>What Did You Learn?</h2>
+
+        <p>
+            In this lesson, you learned what CSS is and how CSS can
+            change text color, background color and font size.
+        </p>
+
+        <h2>Ready for the Quiz?</h2>
+
+        <p>
+            Now test your knowledge by taking Quiz 3.
+        </p>
+
+        <div class="buttons">
+
+            <a href="course.html" class="btn">
+                ← Back to Course
+            </a>
+
+            <a href="quiz3.html" class="btn quiz-btn">
+                Take Quiz 3 →
+            </a>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 StudyNova - Learn & Grow</p>
+    </footer>
+<script> localStorage.setItem("completedLesson3", "true"); </script>
+<script> localStorage.setItem("completedAILesson2", "true"); </script>
+<script src="studynova.js"></script>
+</body>
+</html>

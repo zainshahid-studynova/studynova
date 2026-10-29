@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Quiz 2 - StudyNova</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7ff;
+    color: #222;
+}
+
+header {
+    background: #4f46e5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.quiz-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+h2 {
+    color: #4f46e5;
+}
+
+.question {
+    margin-bottom: 28px;
+}
+
+.question p {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+label {
+    display: block;
+    background: #f3f4f6;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+label:hover {
+    background: #e0e7ff;
+}
+
+input {
+    margin-right: 8px;
+}
+
+button {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3730a3;
+}
+
+#result {
+    margin-top: 25px;
+    padding: 18px;
+    background: #eef2ff;
+    border-radius: 10px;
+    color: #4f46e5;
+    font-size: 21px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 40px;
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 12px;
+    }
+
+    .quiz-box {
+        padding: 20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>StudyNova 🎓</h1>
+
+<p style="color:white;">
+Artificial Intelligence Course
+</p>
+
+</header>
+
+
+<div class="container">
+
+<div class="quiz-box">
+
+<h2>AI Quiz 2: Introduction to Machine Learning</h2>
+
+<p>
+Answer all 15 questions and then click Submit Quiz.
+</p>
+
+
+<form id="quizForm">
+
+
+<!-- QUESTION 1 -->
+
+<div class="question">
+
+<p>1. What is Machine Learning?</p>
+
+<label>
+<input type="radio" name="q1" value="a">
+A type of computer hardware
+</label>
+
+<label>
+<input type="radio" name="q1" value="b">
+A part of Artificial Intelligence that learns from data
+</label>
+
+<label>
+<input type="radio" name="q1" value="c">
+A type of internet connection
+</label>
+
+<label>
+<input type="radio" name="q1" value="d">
+A computer game
+</label>
+
+</div>
+
+
+<!-- QUESTION 2 -->
+
+<div class="question">
+
+<p>2. What does a Machine Learning system learn from?</p>
+
+<label>
+<input type="radio" name="q2" value="a">
+Data and examples
+</label>
+
+<label>
+<input type="radio" name="q2" value="b">
+Electricity only
+</label>
+
+<label>
+<input type="radio" name="q2" value="c">
+Computer screens
+</label>
+
+<label>
+<input type="radio" name="q2" value="d">
+Keyboard buttons
+</label>
+
+</div>
+
+
+<!-- QUESTION 3 -->
+
+<div class="question">
+
+<p>3. What does Machine Learning look for in data?</p>
+
+<label>
+<input type="radio" name="q3" value="a">
+Colors only
+</label>
+
+<label>
+<input type="radio" name="q3" value="b">
+Patterns
+</label>
+
+<label>
+<input type="radio" name="q3" value="c">
+File names only
+</label>
+
+<label>
+<input type="radio" name="q3" value="d">
+Computer brands
+</label>
+
+</div>
+
+
+<!-- QUESTION 4 -->
+
+<div class="question">
+
+<p>4. What can Machine Learning use patterns for?</p>
+
+<label>
+<input type="radio" name="q4" value="a">
+Making predictions or decisions
+</label>
+
+<label>
+<input type="radio" name="q4" value="b">
+Charging a battery
+</label>
+
+<label>
+<input type="radio" name="q4" value="c">
+Printing paper
+</label>
+
+<label>
+<input type="radio" name="q4" value="d">
+Turning a computer into a television
+</label>
+
+</div>
+
+
+<!-- QUESTION 5 -->
+
+<div class="question">
+
+<p>5. Machine Learning is a part of which field?</p>
+
+<label>
+<input type="radio" name="q5" value="a">
+Web Design
+</label>
+
+<label>
+<input type="radio" name="q5" value="b">
+Artificial Intelligence
+</label>
+
+<label>
+<input type="radio" name="q5" value="c">
+Graphic Design
+</label>
+
+<label>
+<input type="radio" name="q5" value="d">
+Computer Repair
+</label>
+
+</div>
+
+
+<!-- QUESTION 6 -->
+
+<div class="question">
+
+<p>6. Which example was used to explain Machine Learning?</p>
+
+<label>
+<input type="radio" name="q6" value="a">
+Teaching a computer about cats and dogs
+</label>
+
+<label>
+<input type="radio" name="q6" value="b">
+Teaching a computer to cook food
+</label>
+
+<label>
+<input type="radio" name="q6" value="c">
+Teaching a computer to build a house
+</label>
+
+<label>
+<input type="radio" name="q6" value="d">
+Teaching a computer to repair a car
+</label>
+
+</div>
+
+
+<!-- QUESTION 7 -->
+
+<div class="question">
+
+<p>7. In the cat and dog example, what does the computer learn from?</p>
+
+<label>
+<input type="radio" name="q7" value="a">
+Pictures of cats and dogs
+</label>
+
+<label>
+<input type="radio" name="q7" value="b">
+Music files
+</label>
+
+<label>
+<input type="radio" name="q7" value="c">
+Weather reports
+</label>
+
+<label>
+<input type="radio" name="q7" value="d">
+Phone numbers
+</label>
+
+</div>
+
+
+<!-- QUESTION 8 -->
+
+<div class="question">
+
+<p>8. What is the relationship between AI and Machine Learning?</p>
+
+<label>
+<input type="radio" name="q8" value="a">
+They are completely unrelated
+</label>
+
+<label>
+<input type="radio" name="q8" value="b">
+Machine Learning is one approach used in Artificial Intelligence
+</label>
+
+<label>
+<input type="radio" name="q8" value="c">
+AI is a part of Machine Learning only
+</label>
+
+<label>
+<input type="radio" name="q8" value="d">
+Machine Learning replaces AI
+</label>
+
+</div>
+
+
+<!-- QUESTION 9 -->
+
+<div class="question">
+
+<p>9. Which is an example of Machine Learning?</p>
+
+<label>
+<input type="radio" name="q9" value="a">
+Email spam detection
+</label>
+
+<label>
+<input type="radio" name="q9" value="b">
+A wooden chair
+</label>
+
+<label>
+<input type="radio" name="q9" value="c">
+A notebook
+</label>
+
+<label>
+<input type="radio" name="q9" value="d">
+A water bottle
+</label>
+
+</div>
+
+
+<!-- QUESTION 10 -->
+
+<div class="question">
+
+<p>10. Which is another example of Machine Learning?</p>
+
+<label>
+<input type="radio" name="q10" value="a">
+Movie and video recommendations
+</label>
+
+<label>
+<input type="radio" name="q10" value="b">
+A table
+</label>
+
+<label>
+<input type="radio" name="q10" value="c">
+A pencil
+</label>
+
+<label>
+<input type="radio" name="q10" value="d">
+A school bag
+</label>
+
+</div>
+
+
+<!-- QUESTION 11 -->
+
+<div class="question">
+
+<p>11. Why is data important in Machine Learning?</p>
+
+<label>
+<input type="radio" name="q11" value="a">
+Data helps systems identify patterns
+</label>
+
+<label>
+<input type="radio" name="q11" value="b">
+Data makes computers heavier
+</label>
+
+<label>
+<input type="radio" name="q11" value="c">
+Data replaces electricity
+</label>
+
+<label>
+<input type="radio" name="q11" value="d">
+Data changes the computer screen
+</label>
+
+</div>
+
+
+<!-- QUESTION 12 -->
+
+<div class="question">
+
+<p>12. Better and useful data can help a Machine Learning system do what?</p>
+
+<label>
+<input type="radio" name="q12" value="a">
+Make better predictions
+</label>
+
+<label>
+<input type="radio" name="q12" value="b">
+Become a physical robot automatically
+</label>
+
+<label>
+<input type="radio" name="q12" value="c">
+Stop using data
+</label>
+
+<label>
+<input type="radio" name="q12" value="d">
+Turn into a website
+</label>
+
+</div>
+
+
+<!-- QUESTION 13 -->
+
+<div class="question">
+
+<p>13. Which technology can use Machine Learning to recommend content?</p>
+
+<label>
+<input type="radio" name="q13" value="a">
+Recommendation systems
+</label>
+
+<label>
+<input type="radio" name="q13" value="b">
+Basic light bulbs
+</label>
+
+<label>
+<input type="radio" name="q13" value="c">
+Wooden doors
+</label>
+
+<label>
+<input type="radio" name="q13" value="d">
+Paper notebooks
+</label>
+
+</div>
+
+
+<!-- QUESTION 14 -->
+
+<div class="question">
+
+<p>14. What can a recommendation system learn from users?</p>
+
+<label>
+<input type="radio" name="q14" value="a">
+What they watch or listen to
+</label>
+
+<label>
+<input type="radio" name="q14" value="b">
+Their shoe size automatically
+</label>
+
+<label>
+<input type="radio" name="q14" value="c">
+The color of their house automatically
+</label>
+
+<label>
+<input type="radio" name="q14" value="d">
+Their handwriting automatically
+</label>
+
+</div>
+
+
+<!-- QUESTION 15 -->
+
+<div class="question">
+
+<p>15. Which statement about Machine Learning is correct?</p>
+
+<label>
+<input type="radio" name="q15" value="a">
+It can learn patterns from data
+</label>
+
+<label>
+<input type="radio" name="q15" value="b">
+It never uses data
+</label>
+
+<label>
+<input type="radio" name="q15" value="c">
+It is unrelated to AI
+</label>
+
+<label>
+<input type="radio" name="q15" value="d">
+It can only be used for games
+</label>
+
+</div>
+
+
+<button type="button" onclick="checkQuiz()">
+Submit Quiz
+</button>
+
+
+</form>
+
+
+<div id="result"></div>
+
+
+<a class="back" href="ai-lesson2.html">
+← Back to AI Lesson 2
+</a>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<p style="color:white;">
+© 2026 StudyNova. Learn & Grow 🚀
+</p>
+
+</footer>
+
+
+<script>
+
+function checkQuiz() {
+
+    const answers = {
+
+        q1: "b",
+        q2: "a",
+        q3: "b",
+        q4: "a",
+        q5: "b",
+        q6: "a",
+        q7: "a",
+        q8: "b",
+        q9: "a",
+        q10: "a",
+        q11: "a",
+        q12: "a",
+        q13: "a",
+        q14: "a",
+        q15: "a"
+
+    };
+
+
+    let score = 0;
+
+
+    for (let question in answers) {
+
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+
+
+        if (
+            selected &&
+            selected.value === answers[question]
+        ) {
+
+            score++;
+
+        }
+
+    }
+
+
+    // Save Quiz 2 score
+
+    localStorage.setItem(
+        "aiQuiz2Score",
+        score
+    );
+
+    localStorage.setItem(
+        "aiQuiz2Total",
+        "15"
+    );
+
+
+    document.getElementById("result").innerHTML =
+        "Your Score: " + score + " / 15 🎉";
+
+}
+
+</script>
+<script src="studynova.js"></script>
+
+</body>
+
+</html>

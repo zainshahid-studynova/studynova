@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyNova - Learn & Grow</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #4f46e5;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 450px;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #4f46e5;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .hero-icon {
+            font-size: 130px;
+        }
+
+        .start-btn,
+        .course-btn {
+            display: inline-block;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .start-btn:hover,
+        .course-btn:hover {
+            background: #3730a3;
+        }
+
+        /* GENERAL SECTIONS */
+
+        .section {
+            max-width: 1100px;
+            margin: 65px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        /* COURSE CARDS */
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .course-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .course-icon {
+            font-size: 55px;
+        }
+
+        .course-card h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .course-card p {
+            color: #6b7280;
+            line-height: 1.8;
+        }
+
+        .course-btn {
+            margin-top: auto;
+        }
+
+        .ai-btn {
+            background: #7c3aed;
+        }
+
+        .ai-btn:hover {
+            background: #5b21b6;
+        }
+
+        .playground-btn {
+            background: #059669;
+        }
+
+        .playground-btn:hover {
+            background: #047857;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* PROGRESS */
+
+        .progress-card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 15px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            transition: width 0.4s ease;
+        }
+
+        .progress-message {
+            margin-top: 15px;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* FLOATING XP AND STREAK DASHBOARD */
+
+        #studyNovaMiniDashboard {
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            z-index: 9999;
+            background: white;
+            color: #3730a3;
+            border: 2px solid #4f46e5;
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.6;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        #studyNovaMiniDashboard:hover {
+            background: #eef2ff;
+        }
+
+        /* STATS POPUP */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(17, 24, 39, 0.6);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h2 {
+            color: #4f46e5;
+            margin-bottom: 20px;
+        }
+
+        .stat {
+            background: #f3f4f6;
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .close-btn {
+            margin-top: 8px;
+            width: 100%;
+            padding: 13px;
+            border: 0;
+            border-radius: 8px;
+            background: #4f46e5;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background: #3730a3;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111827;
+            color: #d1d5db;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 70px;
+            line-height: 1.8;
+        }
+
+        footer .footer-logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+            header {
+                padding: 16px 5%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 5%;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-icon {
+                font-size: 85px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            #studyNovaMiniDashboard {
+                right: 8px;
+                bottom: 8px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+        <div class="logo">StudyNova 🎓</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#courses">Courses</a>
+            <a href="#features">Features</a>
+            <a href="playground.html">Code Playground</a>
+            <a href="achievements.html">Achievements</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>
+                Learn Today.<br>
+                <span>Build Your Future.</span>
+            </h1>
+
+            <p>
+                Welcome to StudyNova — learn new skills through
+                beginner-friendly lessons, quizzes and practical examples.
+            </p>
+
+            <a href="#courses" class="start-btn">Start Learning 🚀</a>
+        </div>
+
+        <div class="hero-icon">🎓</div>
+    </section>
+
+    <!-- COURSES AND PLAYGROUND -->
+
+    <section class="section" id="courses">
+        <h2 class="section-title">Explore Our Courses</h2>
+
+        <p class="section-subtitle">
+            Choose a course or practise your coding skills.
+        </p>
+
+        <div class="course-grid">
+
+            <!-- WEB DEVELOPMENT -->
+
+            <div class="course-card">
+                <div class="course-icon">💻</div>
+
+                <div>
+                    <h3>Web Development</h3>
+                    <p>
+                        Learn HTML and CSS from the basics.
+                        Complete lessons and test your knowledge with quizzes.
+                    </p>
+                </div>
+
+                <a href="course.html" class="course-btn">
+                    View Course →
+                </a>
+            </div>
+
+            <!-- ARTIFICIAL INTELLIGENCE -->
+
+            <div class="course-card">
+                <div class="course-icon">🤖</div>
+
+                <div>
+                    <h3>Artificial Intelligence</h3>
+                    <p>
+                        Discover artificial intelligence, machine learning,
+                        data and generative AI.
+                    </p>
+                </div>
+
+                <a href="ai-course.html" class="course-btn ai-btn">
+                    Explore AI Course →
+                </a>
+            </div>
+
+            <!-- CODE PLAYGROUND -->
+
+            <div class="course-card">
+                <div class="course-icon">🧑‍💻</div>
+
+                <div>
+                    <h3>HTML & CSS Playground</h3>
+                    <p>
+                        Write your own HTML and CSS, run your code
+                        and see the results in a live preview.
+                        Practise your skills while learning!
+                    </p>
+                </div>
+
+                <a href="playground.html" class="course-btn playground-btn">
+                    Open Code Playground →
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="section" id="features">
+        <h2 class="section-title">Why StudyNova?</h2>
+
+        <p class="section-subtitle">
+            Learn, practise and celebrate your progress.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">📚</div>
+                <h3>Simple Lessons</h3>
+                <p>
+                    Beginner-friendly lessons to help you learn step by step.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <h3>Interactive Quizzes</h3>
+                <p>
+                    Test your knowledge after studying each lesson.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🏆</div>
+                <h3>Achievements</h3>
+                <p>
+                    Complete lessons and work towards earning badges.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🧑‍💻</div>
+                <h3>Code Playground</h3>
+                <p>
+                    Experiment with HTML and CSS and preview your work.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WEB DEVELOPMENT PROGRESS -->
+
+    <section class="section">
+        <h2 class="section-title">Your Web Development Progress</h2>
+
+        <p class="section-subtitle">
+            Every completed lesson takes you one step forward.
+        </p>
+
+        <div class="progress-card">
+            <div class="progress-top">
+                <span>Web Development</span>
+                <span id="progressText">0%</span>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+
+            <p class="progress-message" id="progressMessage">
+                Start your first lesson to begin your journey! 🚀
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="footer-logo">StudyNova 🎓</div>
+        <p>Learn. Practice. Grow.</p>
+        <p>Created by Zain Shahid ❤️</p>
+        <p>© 2026 StudyNova. All Rights Reserved.</p>
+    </footer>
+
+    <!-- XP AND STREAK DETAILS POPUP -->
+
+    <div class="modal" id="statsModal"
+         role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+        <div class="modal-content">
+            <h2 id="modalTitle">Your StudyNova Stats 🎓</h2>
+
+            <div class="stat">
+                <strong>⭐ Total XP</strong>
+                <p id="modalXP">0 XP</p>
+            </div>
+
+            <div class="stat">
+                <strong>🔥 Daily Streak</strong>
+                <p id="modalStreak">0 days</p>
+                <p>
+                    Visit StudyNova on consecutive days to maintain your streak.
+                </p>
+            </div>
+
+            <button class="close-btn" id="closeModal" type="button">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- LOAD THE EXISTING STUDYNOVA SCRIPT ONCE -->
+
+    <script src="studynova.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            const prefix = "studyNova_";
+
+            function getNumber(key) {
+                const value = Number(localStorage.getItem(key));
+
+                return Number.isFinite(value) && value >= 0
+                    ? value
+                    : 0;
+            }
+
+            function showDashboard() {
+                let dashboard = document.getElementById(
+                    "studyNovaMiniDashboard"
+                );
+
+                if (!dashboard) {
+                    dashboard = document.createElement("button");
+                    dashboard.id = "studyNovaMiniDashboard";
+                    dashboard.type = "button";
+
+                    dashboard.setAttribute(
+                        "aria-label",
+                        "Open XP and daily streak details"
+                    );
+
+                    document.body.appendChild(dashboard);
+                }
+
+                dashboard.textContent =
+                    "⭐ StudyNova XP: " +
+                    getNumber(prefix + "xp") +
+                    " | 🔥 Streak: " +
+                    getNumber(prefix + "streak") +
+                    " day(s)";
+            }
+
+            function updateProgress() {
+                let completed = 0;
+
+                for (let i = 1; i <= 5; i++) {
+                    if (
+                        localStorage.getItem(
+                            "completedLesson" + i
+                        ) === "true"
+                    ) {
+                        completed++;
+                    }
+                }
+
+                const percentage = Math.round(
+                    (completed / 5) * 100
+                );
+
+                document.getElementById("progressBar").style.width =
+                    percentage + "%";
+
+                document.getElementById("progressText").textContent =
+                    percentage + "%";
+
+                const message = document.getElementById(
+                    "progressMessage"
+                );
+
+                if (percentage === 0) {
+                    message.textContent =
+                        "Start your first lesson to begin your journey! 🚀";
+                } else if (percentage < 100) {
+                    message.textContent =
+                        "Great progress! Keep learning. 💪";
+                } else {
+                    message.textContent =
+                        "🎉 Congratulations! You completed all 5 lessons!";
+                }
+            }
+
+            function openStats() {
+                document.getElementById("modalXP").textContent =
+                    getNumber(prefix + "xp") + " XP";
+
+                document.getElementById("modalStreak").textContent =
+                    getNumber(prefix + "streak") + " day(s)";
+
+                document.getElementById("statsModal").classList.add("show");
+            }
+
+            function closeStats() {
+                document.getElementById("statsModal").classList.remove("show");
+            }
+
+            // Clicking the floating XP and streak dashboard opens the popup.
+            document.addEventListener("click", function (event) {
+                if (
+                    event.target.closest("#studyNovaMiniDashboard")
+                ) {
+                    openStats();
+                }
+            });
+
+            document.getElementById("closeModal").addEventListener(
+                "click",
+                closeStats
+            );
+
+            document.getElementById("statsModal").addEventListener(
+                "click",
+                function (event) {
+                    if (event.target.id === "statsModal") {
+                        closeStats();
+                    }
+                }
+            );
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeStats();
+                }
+            });
+
+            showDashboard();
+            updateProgress();
+
+            // Refresh the visible XP and streak after updates on this page.
+            window.addEventListener("storage", function () {
+                showDashboard();
+                updateProgress();
+            });
+        })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence Course - StudyNova</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f6ff;
+            color: #333;
+        }
+
+        nav {
+            background: white;
+            padding: 18px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4f46e5;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 45px 30px;
+            border-radius: 18px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            margin: 0 0 15px;
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .progress-card, .lesson-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+
+        .progress-card h2, .lesson-card h2 {
+            color: #4f46e5;
+            margin-top: 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 18px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #4f46e5;
+            transition: width 0.4s ease;
+        }
+
+        .progress-text {
+            font-weight: bold;
+            color: #4f46e5;
+        }
+
+        .lesson-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .status {
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .completed {
+            color: #16a34a;
+        }
+
+        .pending {
+            color: #f59e0b;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 20px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            margin: 8px 8px 0 0;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            background: #3730a3;
+        }
+
+        .completion {
+            display: none;
+            background: white;
+            padding: 40px 25px;
+            text-align: center;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            border: 3px solid #4f46e5;
+        }
+
+        .completion-icon {
+            font-size: 55px;
+        }
+
+        .completion h2 {
+            color: #4f46e5;
+            font-size: 30px;
+        }
+
+        .completion p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .certificate-box {
+            background: #f4f6ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .name-box {
+            margin-top: 25px;
+        }
+
+        .name-box input {
+            width: min(100%, 420px);
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .certificate {
+            display: none;
+            margin-top: 30px;
+            padding: 45px 30px;
+            border: 8px double #4f46e5;
+            border-radius: 18px;
+            background: white;
+            text-align: center;
+        }
+
+        .certificate h2 {
+            color: #4f46e5;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .certificate h3 {
+            font-size: 30px;
+            margin: 20px 0;
+            color: #222;
+            overflow-wrap: anywhere;
+        }
+
+        .certificate p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .certificate-title {
+            font-size: 22px;
+            color: #7c3aed;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 15px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .btn {
+                display: block;
+                text-align: center;
+                margin-right: 0;
+            }
+
+            .certificate {
+                padding: 25px 12px;
+                border-width: 5px;
+            }
+
+            .certificate h2 {
+                font-size: 26px;
+            }
+
+            .certificate h3 {
+                font-size: 24px;
+            }
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #certificate,
+            #certificate * {
+                visibility: visible;
+            }
+
+            #certificate {
+                display: block !important;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+            }
+
+            #certificate .print-btn {
+                display: none !important;
+            }
+
+            nav, footer {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">🎓 StudyNova</a>
+    </nav>
+
+    <div class="container">
+
+        <section class="hero">
+            <h1>🤖 Artificial Intelligence</h1>
+            <p>
+                Learn the basics of Artificial Intelligence,
+                Machine Learning, AI data, everyday AI applications,
+                and Generative AI.
+            </p>
+        </section>
+
+        <section class="progress-card">
+            <h2>📊 AI Course Progress</h2>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <p class="progress-text" id="progressText">0% Complete</p>
+            <p id="lessonCount">Lessons Completed: 0 / 5</p>
+        </section>
+
+        <div class="lesson-card">
+            <h2>Lesson 1: What is Artificial Intelligence?</h2>
+            <p>Learn what AI is, how it works, and where we see AI in everyday life.</p>
+            <p class="status" id="status1"></p>
+            <a href="ai-lesson1.html" class="btn">Open Lesson</a>
+            <a href="ai-quiz1.html" class="btn">Take Quiz</a>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Lesson 2: Introduction to Machine Learning</h2>
+            <p>Understand Machine Learning and how computers can learn patterns from data.</p>
+            <p class="status" id="status2"></p>
+            <a href="ai-lesson2.html" class="btn">Open Lesson</a>
+            <a href="ai-quiz2.html" class="btn">Take Quiz</a>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Lesson 3: How AI Learns from Data</h2>
+            <p>Learn about data, AI learning, patterns, and why good data is important.</p>
+            <p class="status" id="status3"></p>
+            <a href="ai-lesson3.html" class="btn">Open Lesson</a>
+            <a href="ai-quiz3.html" class="btn">Take Quiz</a>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Lesson 4: AI in Everyday Life</h2>
+            <p>Discover how AI is used in smartphones, recommendation systems, spam detection, image recognition, and other digital services.</p>
+            <p class="status" id="status4"></p>
+            <a href="ai-lesson4.html" class="btn">Open Lesson</a>
+            <a href="ai-quiz4.html" class="btn">Take Quiz</a>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Lesson 5: Introduction to Generative AI</h2>
+            <p>Learn how Generative AI can create text, images, audio, and other digital content.</p>
+            <p class="status" id="status5"></p>
+            <a href="ai-lesson5.html" class="btn">Open Lesson</a>
+            <a href="ai-quiz5.html" class="btn">Final Quiz</a>
+        </div>
+
+        <section class="completion" id="completionSection">
+            <div class="completion-icon">🏆</div>
+
+            <h2>Congratulations! 🎉</h2>
+
+            <p>
+                You have successfully completed all 5 lessons
+                of the Artificial Intelligence Course.
+            </p>
+
+            <div class="certificate-box">
+                <p><strong>Course:</strong> Artificial Intelligence</p>
+                <p><strong>Lessons Completed:</strong> 5 / 5</p>
+                <p><strong>Progress:</strong> 100% ✅</p>
+                <p>Great work! Keep learning and growing. 🚀</p>
+
+                <div class="name-box">
+                    <h3>🎓 Get Your AI Certificate</h3>
+                    <p>Enter your name below:</p>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Enter your full name"
+                    >
+
+                    <br>
+
+                    <button class="btn" onclick="showCertificate()">
+                        Generate Certificate
+                    </button>
+                </div>
+            </div>
+
+            <div class="certificate" id="certificate">
+                <p class="certificate-title">🎓 StudyNova</p>
+                <h2>Certificate of Completion</h2>
+                <p>This certificate is proudly presented to</p>
+                <h3 id="certificateName">Student Name</h3>
+                <p>for successfully completing the</p>
+                <p><strong>Artificial Intelligence Course</strong></p>
+                <p>5 Lessons • 100% Course Progress</p>
+                <p>🏆 Keep learning, keep growing, and keep building your future!</p>
+
+                <button class="btn print-btn" onclick="window.print()">
+                    🖨️ Print Certificate
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>© 2026 StudyNova - Learn & Grow 🎓</footer>
+
+    <script>
+        function updateProgress() {
+            let completed = 0;
+
+            const lessons = [
+                "completedAILesson1",
+                "completedAILesson2",
+                "completedAILesson3",
+                "completedAILesson4",
+                "completedAILesson5"
+            ];
+
+            const statuses = [
+                "status1",
+                "status2",
+                "status3",
+                "status4",
+                "status5"
+            ];
+
+            for (let i = 0; i < lessons.length; i++) {
+                const statusElement = document.getElementById(statuses[i]);
+
+                if (localStorage.getItem(lessons[i]) === "true") {
+                    completed++;
+
+                    statusElement.textContent = "✅ Completed";
+                    statusElement.className = "status completed";
+                } else {
+                    statusElement.textContent = "⏳ Not Completed";
+                    statusElement.className = "status pending";
+                }
+            }
+
+            const percentage = (completed / 5) * 100;
+
+            document.getElementById("progressFill").style.width =
+                percentage + "%";
+
+            document.getElementById("progressText").textContent =
+                percentage + "% Complete";
+
+            document.getElementById("lessonCount").textContent =
+                "Lessons Completed: " + completed + " / 5";
+
+            const completionSection =
+                document.getElementById("completionSection");
+
+            if (completed === 5) {
+                completionSection.style.display = "block";
+
+                // Save the AI Graduate badge when all five lessons are complete.
+                localStorage.setItem("aiGraduateBadge", "true");
+            } else {
+                completionSection.style.display = "none";
+            }
+        }
+
+        function showCertificate() {
+            const nameInput = document.getElementById("studentName");
+            const name = nameInput.value.trim();
+
+            if (name === "") {
+                alert("Please enter your name first.");
+                nameInput.focus();
+                return;
+            }
+
+            localStorage.setItem("studentName", name);
+
+            document.getElementById("certificateName").textContent = name;
+            document.getElementById("certificate").style.display = "block";
+
+            document.getElementById("certificate").scrollIntoView({
+                behavior: "smooth"
+            });
+
+            setTimeout(function () {
+                window.print();
+            }, 500);
+        }
+
+        const savedName = localStorage.getItem("studentName");
+
+        if (savedName) {
+            document.getElementById("studentName").value = savedName;
+        }
+
+        updateProgress();
+    </script>
+
+</body>
+</html>

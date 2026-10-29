@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Development Course - StudyNova</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+
+        .home-btn {
+            text-decoration: none;
+            color: #4f46e5;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 45px;
+            border-radius: 22px;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .progress-card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            margin-bottom: 35px;
+        }
+
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 16px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            transition: width 0.5s ease;
+        }
+
+        .progress-message {
+            margin-top: 12px;
+            color: #6b7280;
+        }
+
+        .lessons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .lesson-card {
+            background: white;
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border: 2px solid transparent;
+        }
+
+        .lesson-card.completed {
+            border-color: #22c55e;
+        }
+
+        .lesson-number {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .lesson-card h2 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .lesson-card p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .status.completed {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .lesson-btn {
+            display: inline-block;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .lesson-btn:hover {
+            background: #3730a3;
+        }
+
+        .quiz-link {
+            display: inline-block;
+            margin-left: 8px;
+            background: #eef2ff;
+            color: #4f46e5;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .completion {
+            display: none;
+            background: linear-gradient(135deg, #ecfdf5, #eff6ff);
+            text-align: center;
+            padding: 35px;
+            border-radius: 20px;
+            margin-top: 35px;
+        }
+
+        .completion-icon {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .completion h2 {
+            color: #166534;
+            margin-bottom: 10px;
+        }
+
+        .completion p {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .name-box {
+            margin: 25px auto 0;
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .name-box h3 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        .name-box p {
+            margin-bottom: 15px;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .name-input:focus {
+            border-color: #4f46e5;
+        }
+
+        .achievement {
+            margin-top: 25px;
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            border: 2px solid #fbbf24;
+        }
+
+        .achievement-icon {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .achievement h3 {
+            color: #92400e;
+            margin-bottom: 8px;
+        }
+
+        .certificate-btn {
+            margin-top: 22px;
+            border: none;
+            background: #4f46e5;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .certificate-btn:hover {
+            background: #3730a3;
+        }
+
+        .certificate {
+            display: none;
+            background: white;
+            border: 12px solid #4f46e5;
+            padding: 55px;
+            margin-top: 35px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+
+        .certificate-inner {
+            border: 3px solid #fbbf24;
+            padding: 45px 25px;
+        }
+
+        .certificate-logo {
+            font-size: 34px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 20px;
+        }
+
+        .certificate h2 {
+            font-size: 38px;
+            color: #111827;
+            margin-bottom: 15px;
+        }
+
+        .certificate h3 {
+            font-size: 28px;
+            color: #4f46e5;
+            margin: 20px 0;
+        }
+
+        .certificate p {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .certificate-badge {
+            font-size: 70px;
+            margin: 20px 0;
+        }
+
+        .certificate-footer {
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .certificate-footer div {
+            flex: 1;
+            border-top: 2px solid #9ca3af;
+            padding-top: 8px;
+            color: #6b7280;
+        }
+
+        footer {
+            background: #111827;
+            color: #d1d5db;
+            text-align: center;
+            padding: 28px;
+            margin-top: 70px;
+        }
+
+        @media (max-width: 750px) {
+
+            header {
+                padding: 16px 5%;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .hero {
+                padding: 30px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .lessons {
+                grid-template-columns: 1fr;
+            }
+
+            .quiz-link {
+                margin-left: 0;
+                margin-top: 8px;
+            }
+
+            .certificate {
+                padding: 20px;
+                border-width: 7px;
+            }
+
+            .certificate-inner {
+                padding: 30px 15px;
+            }
+
+            .certificate h2 {
+                font-size: 28px;
+            }
+
+            .certificate h3 {
+                font-size: 22px;
+            }
+
+            .certificate-footer {
+                flex-direction: column;
+            }
+        }
+
+        @media print {
+
+            body {
+                background: white;
+            }
+
+            header,
+            .hero,
+            .progress-card,
+            .lessons,
+            .completion,
+            footer {
+                display: none !important;
+            }
+
+            .container {
+                margin: 0;
+                padding: 0;
+                max-width: none;
+            }
+
+            .certificate {
+                display: block !important;
+                margin: 0;
+                box-shadow: none;
+                min-height: 95vh;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        StudyNova 🎓
+    </div>
+
+    <a href="index.html" class="home-btn">
+        ← Home
+    </a>
+
+</header>
+
+
+<div class="container">
+
+
+    <section class="hero">
+
+        <h1>
+            Web Development 💻
+        </h1>
+
+        <p>
+            Learn the basics of HTML and CSS through
+            simple lessons, examples and quizzes.
+            Complete all 5 lessons to finish the course.
+        </p>
+
+    </section>
+
+
+    <section class="progress-card">
+
+        <div class="progress-top">
+
+            <span>
+                Course Progress
+            </span>
+
+            <span id="progressText">
+                0%
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div
+                class="progress"
+                id="progressBar">
+            </div>
+
+        </div>
+
+        <p
+            class="progress-message"
+            id="progressMessage">
+
+            Start learning to begin your progress! 🚀
+
+        </p>
+
+    </section>
+
+
+    <section>
+
+        <div class="lessons">
+
+
+            <div class="lesson-card" id="lesson1">
+
+                <div class="lesson-number">
+                    🌐
+                </div>
+
+                <span class="status" id="status1">
+                    Not Completed
+                </span>
+
+                <h2>
+                    Lesson 1: Introduction to HTML
+                </h2>
+
+                <p>
+                    Learn what HTML is and how it is
+                    used to create the structure of webpages.
+                </p>
+
+                <a href="lesson1.html" class="lesson-btn">
+                    Open Lesson →
+                </a>
+
+                <a href="quiz1.html" class="quiz-link">
+                    Quiz 🧠
+                </a>
+
+            </div>
+
+
+            <div class="lesson-card" id="lesson2">
+
+                <div class="lesson-number">
+                    📝
+                </div>
+
+                <span class="status" id="status2">
+                    Not Completed
+                </span>
+
+                <h2>
+                    Lesson 2: HTML Elements
+                </h2>
+
+                <p>
+                    Learn about headings, paragraphs and
+                    basic HTML elements.
+                </p>
+
+                <a href="lesson2.html" class="lesson-btn">
+                    Open Lesson →
+                </a>
+
+                <a href="quiz2.html" class="quiz-link">
+                    Quiz 🧠
+                </a>
+
+            </div>
+
+
+            <div class="lesson-card" id="lesson3">
+
+                <div class="lesson-number">
+                    🎨
+                </div>
+
+                <span class="status" id="status3">
+                    Not Completed
+                </span>
+
+                <h2>
+                    Lesson 3: Introduction to CSS
+                </h2>
+
+                <p>
+                    Learn how CSS changes colors,
+                    backgrounds and the appearance of webpages.
+                </p>
+
+                <a href="lesson3.html" class="lesson-btn">
+                    Open Lesson →
+                </a>
+
+                <a href="quiz3.html" class="quiz-link">
+                    Quiz 🧠
+                </a>
+
+            </div>
+
+
+            <div class="lesson-card" id="lesson4">
+
+                <div class="lesson-number">
+                    📐
+                </div>
+
+                <span class="status" id="status4">
+                    Not Completed
+                </span>
+
+                <h2>
+                    Lesson 4: CSS Layout
+                </h2>
+
+                <p>
+                    Learn margin, padding, borders and
+                    rounded corners.
+                </p>
+
+                <a href="lesson4.html" class="lesson-btn">
+                    Open Lesson →
+                </a>
+
+                <a href="quiz4.html" class="quiz-link">
+                    Quiz 🧠
+                </a>
+
+            </div>
+
+
+            <div class="lesson-card" id="lesson5">
+
+                <div class="lesson-number">
+                    🚀
+                </div>
+
+                <span class="status" id="status5">
+                    Not Completed
+                </span>
+
+                <h2>
+                    Lesson 5: Web Development Basics
+                </h2>
+
+                <p>
+                    Review the important HTML and CSS
+                    concepts and complete the final quiz.
+                </p>
+
+                <a href="lesson5.html" class="lesson-btn">
+                    Open Lesson →
+                </a>
+
+                <a href="quiz5.html" class="quiz-link">
+                    Final Quiz 🏆
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <section
+        class="completion"
+        id="completion">
+
+        <div class="completion-icon">
+            🏆
+        </div>
+
+        <h2>
+            Congratulations!
+        </h2>
+
+        <p>
+            You have completed all 5 lessons.
+            Great work! 🎉
+        </p>
+
+
+        <div class="name-box">
+
+            <h3>
+                🎓 Enter Your Name
+            </h3>
+
+            <p>
+                Enter your name below. It will appear on your certificate.
+            </p>
+
+            <input
+                type="text"
+                id="studentName"
+                class="name-input"
+                placeholder="Enter your full name">
+
+        </div>
+
+
+        <div class="achievement">
+
+            <div class="achievement-icon">
+                🏅
+            </div>
+
+            <h3>
+                Achievement Unlocked!
+            </h3>
+
+            <p>
+                Web Development Graduate
+            </p>
+
+            <button
+                class="certificate-btn"
+                onclick="showCertificate()">
+
+                🎓 Download Certificate
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section
+        class="certificate"
+        id="certificate">
+
+        <div class="certificate-inner">
+
+            <div class="certificate-logo">
+                StudyNova 🎓
+            </div>
+
+            <h2>
+                CERTIFICATE OF COMPLETION
+            </h2>
+
+            <div class="certificate-badge">
+                🏆
+            </div>
+
+            <p>
+                This certificate is proudly presented to
+            </p>
+
+            <h3 id="certificateName">
+                StudyNova Learner
+            </h3>
+
+            <p>
+                for successfully completing the
+                <strong>Web Development</strong> course
+                and completing all 5 lessons.
+            </p>
+
+            <div class="certificate-footer">
+
+                <div>
+                    StudyNova
+                </div>
+
+                <div>
+                    2026
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+<footer>
+
+    <p>
+        StudyNova 🎓
+    </p>
+
+    <p>
+        Learn. Practice. Grow.
+    </p>
+
+    <p>
+        © 2026 StudyNova. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+
+function updateCourse() {
+
+    let completed = 0;
+
+
+    for (let i = 1; i <= 5; i++) {
+
+        if (
+            localStorage.getItem("completedLesson" + i) === "true"
+        ) {
+
+            completed++;
+
+        }
+
+    }
+
+
+    let percentage =
+        Math.round((completed / 5) * 100);
+
+
+    document.getElementById("progressBar").style.width =
+        percentage + "%";
+
+
+    document.getElementById("progressText").innerText =
+        percentage + "%";
+
+
+    for (let i = 1; i <= 5; i++) {
+
+        let card =
+            document.getElementById("lesson" + i);
+
+        let status =
+            document.getElementById("status" + i);
+
+
+        if (
+            localStorage.getItem("completedLesson" + i) === "true"
+        ) {
+
+            card.classList.add("completed");
+
+            status.classList.add("completed");
+
+            status.innerText =
+                "✓ Completed";
+
+        } else {
+
+            card.classList.remove("completed");
+
+            status.classList.remove("completed");
+
+            status.innerText =
+                "Not Completed";
+
+        }
+
+    }
+
+
+    let message =
+        document.getElementById("progressMessage");
+
+
+    if (percentage === 0) {
+
+        message.innerText =
+            "Start learning to begin your progress! 🚀";
+
+    }
+
+    else if (percentage < 100) {
+
+        message.innerText =
+            "Great progress! Keep going. 💪";
+
+    }
+
+    else {
+
+        localStorage.setItem("webDevelopmentBadge", "true");
+
+        message.innerText =
+            "🎉 Course completed! You reached 100%.";
+
+        document.getElementById("completion").style.display =
+            "block";
+
+    }
+
+}
+
+
+function showCertificate() {
+
+    let name =
+        document.getElementById("studentName").value.trim();
+
+
+    if (name === "") {
+
+        alert("Please enter your name first.");
+
+        document.getElementById("studentName").focus();
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "studentName",
+        name
+    );
+
+
+    document.getElementById("certificateName").innerText =
+        name;
+
+
+    document.getElementById("certificate").style.display =
+        "block";
+
+
+    document.getElementById("certificate").scrollIntoView({
+        behavior: "smooth"
+    });
+
+
+    setTimeout(function() {
+
+        window.print();
+
+    }, 500);
+
+}
+
+
+function loadStudentName() {
+
+    let savedName =
+        localStorage.getItem("studentName");
+
+
+    if (savedName) {
+
+        document.getElementById("studentName").value =
+            savedName;
+
+        document.getElementById("certificateName").innerText =
+            savedName;
+
+    }
+
+}
+
+
+updateCourse();
+
+loadStudentName();
+
+
+</script>
+
+
+</body>
+
+</html>

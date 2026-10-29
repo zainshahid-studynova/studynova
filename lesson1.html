@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lesson 1 - Introduction to HTML - StudyNova</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6fb;
+            color: #222;
+        }
+
+        header {
+            background-color: #4f46e5;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            font-size: 17px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 35px auto;
+            background-color: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #4f46e5;
+            margin-top: 25px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .example {
+            background-color: #f1f5f9;
+            border-left: 5px solid #4f46e5;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .example code {
+            font-size: 16px;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #4f46e5;
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #3730a3;
+        }
+
+        .quiz-btn {
+            background-color: #16a34a;
+        }
+
+        .quiz-btn:hover {
+            background-color: #15803d;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>StudyNova</h1>
+        <p>Lesson 1: Introduction to HTML</p>
+    </header>
+
+    <div class="container">
+
+        <h2>What is HTML?</h2>
+
+        <p>
+            HTML stands for HyperText Markup Language.
+            It is used to create the structure of web pages.
+        </p>
+
+        <p>
+            HTML tells the browser what content should appear on a webpage,
+            such as headings, paragraphs, images, links and buttons.
+        </p>
+
+        <h2>Why is HTML Important?</h2>
+
+        <p>
+            HTML is one of the basic technologies used to create websites.
+            It provides the structure of a webpage, while CSS is used for
+            styling and JavaScript is used to add interactivity.
+        </p>
+
+        <h2>Basic HTML Example</h2>
+
+        <div class="example">
+            <code>
+                &lt;h1&gt;Hello World&lt;/h1&gt;
+                <br><br>
+                &lt;p&gt;This is my first webpage.&lt;/p&gt;
+            </code>
+        </div>
+
+        <h2>What Did You Learn?</h2>
+
+        <p>
+            In this lesson, you learned what HTML is and how HTML is used
+            to create the basic structure of a webpage.
+        </p>
+
+        <h2>Ready for the Quiz?</h2>
+
+        <p>
+            Now test your knowledge by taking Quiz 1.
+        </p>
+
+        <div class="buttons">
+
+            <a href="course.html" class="btn">
+                ← Back to Course
+            </a>
+
+            <a href="quiz1.html" class="btn quiz-btn">
+                Take Quiz 1 →
+            </a>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 StudyNova - Learn & Grow</p>
+    </footer>
+<script> localStorage.setItem("completedLesson1", "true"); </script>
+<script> localStorage.setItem("completedAILesson1", "true"); </script>
+<script src="studynova.js"></script>
+</body>
+</html>

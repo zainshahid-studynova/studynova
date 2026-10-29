@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Quiz 1 - StudyNova</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #4f46e5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .quiz-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #4f46e5;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question p {
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        label:hover {
+            background: #e8e8ff;
+        }
+
+        button {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #4f46e5;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>
+        StudyNova 🎓
+    </h1>
+
+    <p>
+        Artificial Intelligence Course
+    </p>
+
+</header>
+
+
+<div class="container">
+
+    <div class="quiz-box">
+
+        <h2>
+            AI Quiz 1: What is Artificial Intelligence?
+        </h2>
+
+        <p>
+            Choose the correct answer for each question.
+        </p>
+
+
+        <form id="quizForm">
+
+
+            <!-- QUESTION 1 -->
+
+            <div class="question">
+
+                <p>
+                    1. What does AI stand for?
+                </p>
+
+                <label>
+                    <input type="radio" name="q1" value="a">
+                    Automated Information
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="b">
+                    Artificial Intelligence
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="c">
+                    Advanced Internet
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="d">
+                    Automatic Intelligence
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+
+            <div class="question">
+
+                <p>
+                    2. What is the main idea of Artificial Intelligence?
+                </p>
+
+                <label>
+                    <input type="radio" name="q2" value="a">
+                    Making computers only faster
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="b">
+                    Making machines perform tasks that normally require human intelligence
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="c">
+                    Creating websites only
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="d">
+                    Storing files on a computer
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+
+            <div class="question">
+
+                <p>
+                    3. Which of these is an example of AI in everyday life?
+                </p>
+
+                <label>
+                    <input type="radio" name="q3" value="a">
+                    Voice assistants
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="b">
+                    A simple notebook
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="c">
+                    A wooden table
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="d">
+                    A pencil
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 4 -->
+
+            <div class="question">
+
+                <p>
+                    4. AI systems can learn from what?
+                </p>
+
+                <label>
+                    <input type="radio" name="q4" value="a">
+                    Data
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="b">
+                    Water
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="c">
+                    Paper only
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="d">
+                    Electricity only
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 5 -->
+
+            <div class="question">
+
+                <p>
+                    5. Which task can an AI system perform?
+                </p>
+
+                <label>
+                    <input type="radio" name="q5" value="a">
+                    Recognizing patterns
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="b">
+                    Growing plants
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="c">
+                    Drinking water
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="d">
+                    Sleeping like a human
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 6 -->
+
+            <div class="question">
+
+                <p>
+                    6. Which technology can use AI to understand spoken commands?
+                </p>
+
+                <label>
+                    <input type="radio" name="q6" value="a">
+                    Voice assistant
+                </label>
+
+                <label>
+                    <input type="radio" name="q6" value="b">
+                    Calculator
+                </label>
+
+                <label>
+                    <input type="radio" name="q6" value="c">
+                    Keyboard
+                </label>
+
+                <label>
+                    <input type="radio" name="q6" value="d">
+                    Printer
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 7 -->
+
+            <div class="question">
+
+                <p>
+                    7. AI can be used to recognize:
+                </p>
+
+                <label>
+                    <input type="radio" name="q7" value="a">
+                    Images and patterns
+                </label>
+
+                <label>
+                    <input type="radio" name="q7" value="b">
+                    Only paper
+                </label>
+
+                <label>
+                    <input type="radio" name="q7" value="c">
+                    Only books
+                </label>
+
+                <label>
+                    <input type="radio" name="q7" value="d">
+                    Nothing
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 8 -->
+
+            <div class="question">
+
+                <p>
+                    8. What can help an AI system improve its performance?
+                </p>
+
+                <label>
+                    <input type="radio" name="q8" value="a">
+                    Useful data and learning
+                </label>
+
+                <label>
+                    <input type="radio" name="q8" value="b">
+                    Turning off the computer
+                </label>
+
+                <label>
+                    <input type="radio" name="q8" value="c">
+                    Removing all information
+                </label>
+
+                <label>
+                    <input type="radio" name="q8" value="d">
+                    Using no data
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 9 -->
+
+            <div class="question">
+
+                <p>
+                    9. Which is an AI-related application?
+                </p>
+
+                <label>
+                    <input type="radio" name="q9" value="a">
+                    Recommendation systems
+                </label>
+
+                <label>
+                    <input type="radio" name="q9" value="b">
+                    Wooden chair
+                </label>
+
+                <label>
+                    <input type="radio" name="q9" value="c">
+                    Water bottle
+                </label>
+
+                <label>
+                    <input type="radio" name="q9" value="d">
+                    Notebook
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 10 -->
+
+            <div class="question">
+
+                <p>
+                    10. Why is AI important?
+                </p>
+
+                <label>
+                    <input type="radio" name="q10" value="a">
+                    It can help solve problems and automate tasks
+                </label>
+
+                <label>
+                    <input type="radio" name="q10" value="b">
+                    It only makes computers colorful
+                </label>
+
+                <label>
+                    <input type="radio" name="q10" value="c">
+                    It removes electricity
+                </label>
+
+                <label>
+                    <input type="radio" name="q10" value="d">
+                    It replaces the internet
+                </label>
+
+            </div>
+
+
+            <button
+                type="button"
+                onclick="checkQuiz()">
+
+                Submit Quiz
+
+            </button>
+
+
+        </form>
+
+
+        <div id="result"></div>
+
+
+        <a
+            class="back"
+            href="ai-lesson1.html">
+
+            ← Back to AI Lesson 1
+
+        </a>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+function checkQuiz() {
+
+
+    const answers = {
+
+        q1: "b",
+        q2: "b",
+        q3: "a",
+        q4: "a",
+        q5: "a",
+        q6: "a",
+        q7: "a",
+        q8: "a",
+        q9: "a",
+        q10: "a"
+
+    };
+
+
+    let score = 0;
+
+
+    for (let question in answers) {
+
+        const selected =
+            document.querySelector(
+                'input[name="' + question + '"]:checked'
+            );
+
+
+        if (
+            selected &&
+            selected.value === answers[question]
+        ) {
+
+            score++;
+
+        }
+
+    }
+
+
+    // SAVE SCORE
+
+    localStorage.setItem(
+        "aiQuiz1Score",
+        score
+    );
+
+
+    localStorage.setItem(
+        "aiQuiz1Total",
+        "10"
+    );
+
+
+    document.getElementById("result").innerHTML =
+        "Your Score: " + score + " / 10 🎉";
+
+
+}
+
+
+</script>
+<script src="studynova.js"></script>
+
+</body>
+
+</html>

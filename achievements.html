@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements - StudyNova</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: white;
+            padding: 20px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            color: #4f46e5;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #4f46e5;
+            font-size: 36px;
+        }
+
+        .intro p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .summary-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .summary-card h2 {
+            font-size: 28px;
+            color: #4f46e5;
+            margin: 8px 0;
+        }
+
+        .summary-card p {
+            color: #6b7280;
+            margin-bottom: 0;
+        }
+
+        .section-heading {
+            margin: 35px 0 20px;
+            font-size: 25px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .badge-card {
+            background: white;
+            padding: 28px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            border: 2px solid #e5e7eb;
+            transition: transform 0.2s ease;
+        }
+
+        .badge-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .badge-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .badge-card h2 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .badge-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .earned {
+            border-color: #22c55e;
+            background: #f0fdf4;
+        }
+
+        .locked {
+            opacity: 0.75;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: #e5e7eb;
+            color: #374151;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .earned .status {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .progress-note {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 25px;
+            line-height: 1.7;
+        }
+
+        .back-area {
+            text-align: center;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 22px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #3730a3;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 25px;
+            text-align: center;
+            background: #111827;
+            color: white;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 650px) {
+            .grid,
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">StudyNova 🎓</div>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h1>My Achievements 🏆</h1>
+            <p>
+                Keep learning, earn XP, build your daily streak,
+                and unlock new achievements with StudyNova!
+            </p>
+        </section>
+
+        <section class="summary">
+            <div class="summary-card">
+                <div class="summary-icon">⭐</div>
+                <p>Total Experience Points</p>
+                <h2 id="xpValue">0 XP</h2>
+                <p>Keep completing lessons and quizzes.</p>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon">🔥</div>
+                <p>Current Daily Streak</p>
+                <h2 id="streakValue">0 days</h2>
+                <p>Learn regularly to build your streak.</p>
+            </div>
+        </section>
+
+        <h2 class="section-heading">🏅 My Badges</h2>
+
+        <section class="grid">
+            <div class="badge-card locked" id="webBadge">
+                <div class="badge-icon">🏅</div>
+                <h2>Web Development Graduate</h2>
+                <p>Complete all 5 Web Development lessons.</p>
+                <span class="status" id="webStatus">🔒 Locked</span>
+            </div>
+
+            <div class="badge-card locked" id="aiBadge">
+                <div class="badge-icon">🤖</div>
+                <h2>AI Graduate</h2>
+                <p>Complete all 5 Artificial Intelligence lessons.</p>
+                <span class="status" id="aiStatus">🔒 Locked</span>
+            </div>
+
+            <div class="badge-card locked" id="lessonsBadge">
+                <div class="badge-icon">🔥</div>
+                <h2>Learning Champion</h2>
+                <p>Maintain a daily learning streak of 7 days.</p>
+                <span class="status" id="lessonsStatus">🔒 Locked</span>
+            </div>
+
+            <div class="badge-card locked" id="quizBadge">
+                <div class="badge-icon">🧠</div>
+                <h2>Quiz Master</h2>
+                <p>Score at least 80% on any saved Web Development quiz.</p>
+                <span class="status" id="quizStatus">🔒 Locked</span>
+            </div>
+        </section>
+
+        <p class="progress-note" id="progressNote">
+            Your achievements will update as you complete lessons and quizzes.
+        </p>
+
+        <div class="back-area">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>StudyNova 🎓</strong></p>
+        <p>Learn. Practice. Grow.</p>
+        <p>Created by Zain Shahid ❤️</p>
+    </footer>
+
+    <script src="studynova.js"></script>
+
+    <script>
+        "use strict";
+
+        function getNumber(key) {
+            const value = Number(localStorage.getItem(key));
+            return Number.isFinite(value) && value >= 0 ? value : 0;
+        }
+
+        function isCompleted(key) {
+            return localStorage.getItem(key) === "true";
+        }
+
+        function countCompletedLessons(prefix) {
+            let count = 0;
+
+            for (let i = 1; i <= 5; i++) {
+                if (isCompleted(prefix + i)) {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        function hasHighQuizScore() {
+            for (let i = 1; i <= 5; i++) {
+                const score = Number(localStorage.getItem("quiz" + i + "Score"));
+                const savedTotal = Number(localStorage.getItem("quiz" + i + "Total"));
+                const total = savedTotal > 0 ? savedTotal : 15;
+
+                if (
+                    Number.isFinite(score) &&
+                    score >= 0 &&
+                    score / total >= 0.8
+                ) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        function updateAchievements() {
+            if (window.StudyNova && typeof window.StudyNova.refresh === "function") {
+                window.StudyNova.refresh();
+            }
+
+            document.getElementById("xpValue").textContent =
+                getNumber("studyNova_xp") + " XP";
+
+            const streak = getNumber("studyNova_streak");
+
+            document.getElementById("streakValue").textContent =
+                streak + (streak === 1 ? " day" : " days");
+
+            const webLessons = countCompletedLessons("completedLesson");
+            const aiLessons = countCompletedLessons("completedAILesson");
+            const quizMaster = hasHighQuizScore();
+            const badges = JSON.parse(
+                localStorage.getItem("studyNova_badges") || "{}"
+            );
+
+            const badgeStates = [
+                {
+                    card: "webBadge",
+                    status: "webStatus",
+                    unlocked: webLessons === 5 || isCompleted("webDevelopmentBadge") || badges.webGraduate
+                },
+                {
+                    card: "aiBadge",
+                    status: "aiStatus",
+                    unlocked: aiLessons === 5 || isCompleted("aiGraduateBadge") || badges.aiGraduate
+                },
+                {
+                    card: "lessonsBadge",
+                    status: "lessonsStatus",
+                    unlocked: getNumber("studyNova_streak") >= 7 ||
+                        isCompleted("learningChampionBadge")
+                },
+                {
+                    card: "quizBadge",
+                    status: "quizStatus",
+                    unlocked: quizMaster || isCompleted("quizMasterBadge")
+                }
+            ];
+
+            let earnedCount = 0;
+
+            badgeStates.forEach(function (badge) {
+                const card = document.getElementById(badge.card);
+                const status = document.getElementById(badge.status);
+
+                if (badge.unlocked) {
+                    earnedCount++;
+                    card.classList.add("earned");
+                    card.classList.remove("locked");
+                    status.textContent = "✓ Earned";
+                } else {
+                    card.classList.remove("earned");
+                    card.classList.add("locked");
+                    status.textContent = "🔒 Locked";
+                }
+            });
+
+            document.getElementById("progressNote").textContent =
+                "You have earned " + earnedCount +
+                " out of 4 badges. Keep learning to unlock the rest!";
+        }
+
+        updateAchievements();
+    </script>
+</body>
+</html>

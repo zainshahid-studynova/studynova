@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz 2 - StudyNova</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: white;
+            padding: 18px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+
+        .quiz {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            color: #6b7280;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .question {
+            margin-bottom: 28px;
+        }
+
+        .question h3 {
+            margin-bottom: 14px;
+        }
+
+        label {
+            display: block;
+            background: #f3f4f6;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        label:hover {
+            background: #e0e7ff;
+        }
+
+        button {
+            padding: 14px 24px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        button:disabled {
+            background: #6b7280;
+            cursor: not-allowed;
+        }
+
+        #result {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #eef2ff;
+            color: #3730a3;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        .celebration-message {
+            margin-top: 12px;
+            font-size: 18px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 22px;
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 600px) {
+            .quiz {
+                margin: 20px 12px;
+                padding: 22px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">StudyNova 🎓</div>
+</header>
+
+<main class="quiz">
+
+    <h1>Quiz 2 - HTML Basics 🧠</h1>
+
+    <p class="intro">
+        Test your knowledge of HTML lists, tables, forms,
+        and common HTML elements. Answer all 15 questions.
+    </p>
+
+    <div class="question">
+        <h3>1. Which tag creates an unordered list?</h3>
+        <label><input type="radio" name="q1" value="a"> &lt;ul&gt;</label>
+        <label><input type="radio" name="q1" value="b"> &lt;ol&gt;</label>
+        <label><input type="radio" name="q1" value="c"> &lt;li&gt;</label>
+    </div>
+
+    <div class="question">
+        <h3>2. Which tag creates a numbered list?</h3>
+        <label><input type="radio" name="q2" value="a"> &lt;ul&gt;</label>
+        <label><input type="radio" name="q2" value="b"> &lt;ol&gt;</label>
+        <label><input type="radio" name="q2" value="c"> &lt;list&gt;</label>
+    </div>
+
+    <div class="question">
+        <h3>3. Which tag represents a list item?</h3>
+        <label><input type="radio" name="q3" value="a"> &lt;item&gt;</label>
+        <label><input type="radio" name="q3" value="b"> &lt;ul&gt;</label>
+        <label><input type="radio" name="q3" value="c"> &lt;li&gt;</label>
+    </div>
+
+    <div class="question">
+        <h3>4. Which tag creates a table row?</h3>
+        <label><input type="radio" name="q4" value="a"> &lt;tr&gt;</label>
+        <label><input type="radio" name="q4" value="b"> &lt;td&gt;</label>
+        <label><input type="radio" name="q4" value="c"> &lt;th&gt;</label>
+    </div>
+
+    <div class="question">
+        <h3>5. Which tag creates a normal table cell?</h3>
+        <label><input type="radio" name="q5" value="a"> &lt;tr&gt;</label>
+        <label><input type="radio" name="q5" value="b"> &lt;td&gt;</label>
+        <label><input type="radio" name="q5" value="c"> &lt;table-row&gt;</label>
+    </div>
+
+    <div class="question">
+        <h3>6. Which tag is commonly used for a table heading cell?</h3>
+        <label><input type="radio" name="q6" value="a"> &lt;td&gt;</label>
+        <label><input type="radio" name="q6" value="b"> &lt;theadrow&gt;</label>
+        <label><input type="radio" name="q6" value="c"> &lt;th&gt;</label>
+    </div>
+
+    <div class="question">
+        <h3>7. Which tag creates an HTML form?</h3>
+        <label><input type="radio" name="q7" value="a"> &lt;form&gt;</label>
+        <label><input type="radio" name="q7" value="b"> &lt;input&gt;</label>
+        <label><input type="radio" name="q7" value="c"> &lt;fieldset-only&gt;</label>
+    </div>
+
+    <div class="question">
+        <h3>8. Which input type hides the characters entered by the user?</h3>
+        <label><input type="radio" name="q8" value="a"> text</label>
+        <label><input type="radio" name="q8" value="b"> password</label>
+        <label><input type="radio" name="q8" value="c"> heading</label>
+    </div>
+
+    <div class="question">
+        <h3>9. Which input type allows a user to select a checkbox?</h3>
+        <label><input type="radio" name="q9" value="a"> radio</label>
+        <label><input type="radio" name="q9" value="b"> text</label>
+        <label><input type="radio" name="q9" value="c"> checkbox</label>
+    </div>
+
+    <div class="question">
+        <h3>10. Which tag creates a drop-down selection list?</h3>
+        <label><input type="radio" name="q10" value="a"> &lt;select&gt;</label>
+        <label><input type="radio" name="q10" value="b"> &lt;option-list&gt;</label>
+        <label><input type="radio" name="q10" value="c"> &lt;dropdown&gt;</label>
+    </div>
+
+    <div class="question">
+        <h3>11. Which tag defines an option in a drop-down list?</h3>
+        <label><input type="radio" name="q11" value="a"> &lt;choice&gt;</label>
+        <label><input type="radio" name="q11" value="b"> &lt;option&gt;</label>
+        <label><input type="radio" name="q11" value="c"> &lt;select-item&gt;</label>
+    </div>
+
+    <div class="question">
+        <h3>12. Which input type is suitable for choosing one option from a group?</h3>
+        <label><input type="radio" name="q12" value="a"> checkbox</label>
+        <label><input type="radio" name="q12" value="b"> text</label>
+        <label><input type="radio" name="q12" value="c"> radio</label>
+    </div>
+
+    <div class="question">
+        <h3>13. Which attribute specifies the destination of a link?</h3>
+        <label><input type="radio" name="q13" value="a"> href</label>
+        <label><input type="radio" name="q13" value="b"> alt</label>
+        <label><input type="radio" name="q13" value="c"> width</label>
+    </div>
+
+    <div class="question">
+        <h3>14. Which attribute makes a form field mandatory?</h3>
+        <label><input type="radio" name="q14" value="a"> checked</label>
+        <label><input type="radio" name="q14" value="b"> required</label>
+        <label><input type="radio" name="q14" value="c"> placeholder</label>
+    </div>
+
+    <div class="question">
+        <h3>15. Which tag creates a button?</h3>
+        <label><input type="radio" name="q15" value="a"> &lt;button&gt;</label>
+        <label><input type="radio" name="q15" value="b"> &lt;click&gt;</label>
+        <label><input type="radio" name="q15" value="c"> &lt;press&gt;</label>
+    </div>
+
+    <button type="button" id="submitQuiz" onclick="checkQuiz()">
+        Submit Quiz
+    </button>
+
+    <div id="result" aria-live="polite"></div>
+
+    <a href="lesson2.html" class="back">← Back to Lesson 2</a>
+
+</main>
+
+<footer>
+    <p><strong>StudyNova 🎓</strong></p>
+    <p>Learn. Practice. Grow.</p>
+    <p>Created by Zain Shahid ❤️</p>
+</footer>
+
+<script src="studynova.js"></script>
+
+<script>
+"use strict";
+
+function checkQuiz() {
+    const answers = {
+        q1: "a",
+        q2: "b",
+        q3: "c",
+        q4: "a",
+        q5: "b",
+        q6: "c",
+        q7: "a",
+        q8: "b",
+        q9: "c",
+        q10: "a",
+        q11: "b",
+        q12: "c",
+        q13: "a",
+        q14: "b",
+        q15: "a"
+    };
+
+    const submitButton = document.getElementById("submitQuiz");
+    const result = document.getElementById("result");
+
+    if (submitButton.disabled) {
+        return;
+    }
+
+    let score = 0;
+    let unanswered = 0;
+
+    for (const question in answers) {
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+
+        if (!selected) {
+            unanswered++;
+        } else if (selected.value === answers[question]) {
+            score++;
+        }
+    }
+
+    result.style.display = "block";
+
+    if (unanswered > 0) {
+        result.textContent =
+            "Please answer all questions first. Unanswered: " + unanswered;
+        return;
+    }
+
+    const total = 15;
+    const percentage = Math.round((score / total) * 100);
+
+    localStorage.setItem("quiz2Score", String(score));
+    localStorage.setItem("quiz2Total", String(total));
+    localStorage.setItem("quiz2Completed", "true");
+
+    let message = "";
+
+    if (score === total) {
+        message =
+            '<div class="celebration-message">🏆 PERFECT SCORE! 🎉 You got all 15 correct!</div>';
+    } else if (percentage >= 80) {
+        message =
+            '<div class="celebration-message">🎉 GREAT JOB! 🎊 You scored ' +
+            percentage + '%!</div>';
+    }
+
+    result.innerHTML =
+        "🎉 Your Score: " + score + " / " + total + message;
+
+    // Only one shared confetti function is called.
+    if (
+        percentage >= 80 &&
+        window.StudyNova &&
+        typeof window.StudyNova.celebrateQuiz === "function"
+    ) {
+        window.StudyNova.celebrateQuiz(score, total);
+    }
+
+    if (
+        window.StudyNova &&
+        typeof window.StudyNova.refresh === "function"
+    ) {
+        window.StudyNova.refresh();
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Quiz Submitted ✓";
+}
+</script>
+
+</body>
+</html>

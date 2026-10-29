@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Code Playground - StudyNova</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            color: #4f46e5;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .intro h1 {
+            color: #4f46e5;
+            font-size: 36px;
+        }
+
+        .intro p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            border: none;
+            border-radius: 8px;
+            padding: 12px 18px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .run-btn {
+            background: #16a34a;
+            color: white;
+        }
+
+        .run-btn:hover {
+            background: #15803d;
+        }
+
+        .example-btn {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .reset-btn {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .workspace {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .editors {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            min-width: 0;
+        }
+
+        .panel h2 {
+            margin: 0 0 12px;
+            font-size: 20px;
+        }
+
+        textarea {
+            display: block;
+            width: 100%;
+            min-height: 230px;
+            resize: vertical;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: #111827;
+            color: #e5e7eb;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            tab-size: 2;
+        }
+
+        textarea:focus {
+            outline: 2px solid #818cf8;
+            border-color: #4f46e5;
+        }
+
+        .preview-panel {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-panel h2 {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .preview-label {
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: normal;
+        }
+
+        iframe {
+            width: 100%;
+            flex: 1;
+            min-height: 510px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .tip {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #eef2ff;
+            color: #3730a3;
+            line-height: 1.7;
+        }
+
+        .back-area {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 13px 22px;
+            background: #4f46e5;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px;
+            text-align: center;
+            background: #111827;
+            color: white;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 800px) {
+            .workspace {
+                grid-template-columns: 1fr;
+            }
+
+            .intro h1 {
+                font-size: 30px;
+            }
+
+            textarea {
+                min-height: 200px;
+            }
+
+            iframe {
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">StudyNova 🎓</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="course.html">Web Development</a>
+            <a href="achievements.html">Achievements</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="intro">
+            <h1>HTML/CSS Code Playground 💻</h1>
+
+            <p>
+                Write your code, run it, and see your webpage come to life!
+                Practice HTML and CSS in one place.
+            </p>
+        </section>
+
+        <div class="toolbar">
+            <button class="run-btn" id="runBtn" type="button">
+                ▶ Run Code
+            </button>
+
+            <button class="example-btn" id="htmlExampleBtn" type="button">
+                HTML Example
+            </button>
+
+            <button class="example-btn" id="cssExampleBtn" type="button">
+                CSS Example
+            </button>
+
+            <button class="reset-btn" id="resetBtn" type="button">
+                Reset
+            </button>
+        </div>
+
+        <section class="workspace">
+
+            <div class="editors">
+
+                <div class="panel">
+                    <h2>🧱 HTML Editor</h2>
+
+                    <textarea
+                        id="htmlCode"
+                        aria-label="HTML code editor"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocomplete="off"
+                    ><h1>Hello, StudyNova!</h1>
+<p>Welcome to my first webpage.</p>
+<button>Click Me</button></textarea>
+                </div>
+
+                <div class="panel">
+                    <h2>🎨 CSS Editor</h2>
+
+                    <textarea
+                        id="cssCode"
+                        aria-label="CSS code editor"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocomplete="off"
+                    >body {
+    font-family: Arial, sans-serif;
+    background: #eef2ff;
+    padding: 25px;
+}
+
+h1 {
+    color: #4f46e5;
+}
+
+p {
+    color: #374151;
+    font-size: 18px;
+}
+
+button {
+    background: #4f46e5;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+}</textarea>
+                </div>
+
+            </div>
+
+            <div class="panel preview-panel">
+                <h2>
+                    <span>🌐 Live Preview</span>
+                    <span class="preview-label">Your output appears here</span>
+                </h2>
+
+                <iframe
+                    id="preview"
+                    title="Webpage code preview"
+                    sandbox=""
+                    referrerpolicy="no-referrer"
+                ></iframe>
+            </div>
+
+        </section>
+
+        <div class="tip">
+            <strong>💡 Beginner tip:</strong>
+            HTML creates the content of your webpage.
+            CSS controls its colors, fonts, spacing, and layout.
+            Change the code and press <strong>Run Code</strong>
+            to see the result.
+        </div>
+
+        <div class="back-area">
+            <a href="index.html" class="back-btn">
+                ← Back to Home
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p><strong>StudyNova 🎓</strong></p>
+        <p>Learn. Practice. Grow.</p>
+        <p>Created by Zain Shahid ❤️</p>
+    </footer>
+
+    <script>
+        "use strict";
+
+        const htmlEditor = document.getElementById("htmlCode");
+        const cssEditor = document.getElementById("cssCode");
+        const preview = document.getElementById("preview");
+
+        function runCode() {
+            const html = htmlEditor.value;
+            const css = cssEditor.value;
+
+            // Escape closing style tags so CSS stays inside its style element.
+            const safeCSS = css.replace(/<\/style/gi, "<\\/style");
+
+            const documentContent = [
+                "<!DOCTYPE html>",
+                '<html lang="en">',
+                "<head>",
+                '<meta charset="UTF-8">',
+                '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+                "<style>",
+                safeCSS,
+                "</style>",
+                "</head>",
+                "<body>",
+                html,
+                "</body>",
+                "</html>"
+            ].join("\n");
+
+            // The preview is sandboxed: scripts and other active content are disabled.
+            preview.srcdoc = documentContent;
+        }
+
+        function loadHTMLExample() {
+            htmlEditor.value = `<h1>My First Website</h1>
+<p>I am learning HTML with StudyNova.</p>
+<h2>My Hobbies</h2>
+<ul>
+    <li>Reading</li>
+    <li>Learning coding</li>
+    <li>Creating websites</li>
+</ul>
+<button>Explore More</button>`;
+
+            runCode();
+        }
+
+        function loadCSSExample() {
+            cssEditor.value = `body {
+    font-family: Arial, sans-serif;
+    background: #fef3c7;
+    padding: 25px;
+}
+
+h1 {
+    color: #b45309;
+    text-align: center;
+}
+
+h2 {
+    color: #92400e;
+}
+
+p, li {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+button {
+    background: #b45309;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}`;
+
+            runCode();
+        }
+
+        function resetCode() {
+            const confirmed = confirm(
+                "Reset both editors to the original example?"
+            );
+
+            if (confirmed) {
+                htmlEditor.value = `<h1>Hello, StudyNova!</h1>
+<p>Welcome to my first webpage.</p>
+<button>Click Me</button>`;
+
+                cssEditor.value = `body {
+    font-family: Arial, sans-serif;
+    background: #eef2ff;
+    padding: 25px;
+}
+
+h1 {
+    color: #4f46e5;
+}
+
+p {
+    color: #374151;
+    font-size: 18px;
+}
+
+button {
+    background: #4f46e5;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+}`;
+
+                runCode();
+            }
+        }
+
+        document.getElementById("runBtn")
+            .addEventListener("click", runCode);
+
+        document.getElementById("htmlExampleBtn")
+            .addEventListener("click", loadHTMLExample);
+
+        document.getElementById("cssExampleBtn")
+            .addEventListener("click", loadCSSExample);
+
+        document.getElementById("resetBtn")
+            .addEventListener("click", resetCode);
+
+        // Display the starter example when the page opens.
+        runCode();
+    </script>
+
+</body>
+</html>

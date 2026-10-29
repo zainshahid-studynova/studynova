@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lesson 2 - Basic HTML Tags - StudyNova</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6fb;
+            color: #222;
+        }
+
+        header {
+            background-color: #4f46e5;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            font-size: 17px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 35px auto;
+            background-color: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #4f46e5;
+            margin-top: 25px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .example {
+            background-color: #f1f5f9;
+            border-left: 5px solid #4f46e5;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .example code {
+            font-size: 16px;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #4f46e5;
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #3730a3;
+        }
+
+        .quiz-btn {
+            background-color: #16a34a;
+        }
+
+        .quiz-btn:hover {
+            background-color: #15803d;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>StudyNova</h1>
+        <p>Lesson 2: Basic HTML Tags</p>
+    </header>
+
+    <div class="container">
+
+        <h2>What are HTML Tags?</h2>
+
+        <p>
+            HTML tags are used to tell the browser how different parts
+            of a webpage should be structured.
+        </p>
+
+        <p>
+            Most HTML elements have an opening tag and a closing tag.
+            The content is written between these tags.
+        </p>
+
+        <h2>Heading Tags</h2>
+
+        <p>
+            HTML provides heading tags from h1 to h6.
+            The h1 tag is used for the main heading, while smaller
+            headings can be created using h2, h3 and so on.
+        </p>
+
+        <div class="example">
+            <code>
+                &lt;h1&gt;My Website&lt;/h1&gt;
+                <br><br>
+                &lt;h2&gt;About Me&lt;/h2&gt;
+            </code>
+        </div>
+
+        <h2>Paragraph Tag</h2>
+
+        <p>
+            The paragraph tag is written as &lt;p&gt;.
+            It is used to display normal text in a webpage.
+        </p>
+
+        <div class="example">
+            <code>
+                &lt;p&gt;Welcome to StudyNova!&lt;/p&gt;
+            </code>
+        </div>
+
+        <h2>Link Tag</h2>
+
+        <p>
+            The anchor tag, written as &lt;a&gt;, is used to create links
+            that allow users to move from one webpage to another.
+        </p>
+
+        <div class="example">
+            <code>
+                &lt;a href="course.html"&gt;Go to Course&lt;/a&gt;
+            </code>
+        </div>
+
+        <h2>What Did You Learn?</h2>
+
+        <p>
+            In this lesson, you learned about HTML tags, heading tags,
+            paragraph tags and links.
+        </p>
+
+        <h2>Ready for the Quiz?</h2>
+
+        <p>
+            Now test your knowledge by taking Quiz 2.
+        </p>
+
+        <div class="buttons">
+
+            <a href="course.html" class="btn">
+                ← Back to Course
+            </a>
+
+            <a href="quiz2.html" class="btn quiz-btn">
+                Take Quiz 2 →
+            </a>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 StudyNova - Learn & Grow</p>
+    </footer>
+<script> localStorage.setItem("completedLesson2", "true"); </script>
+<script> localStorage.setItem("completedAILesson2", "true"); </script>
+<script src="studynova.js"></script>
+</body>
+</html>

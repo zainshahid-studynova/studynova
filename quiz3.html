@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz 3 - StudyNova</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: white;
+            padding: 18px 8%;
+            box-shadow: 0 2px 10px #00000010;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+
+        .quiz {
+            max-width: 800px;
+            margin: 35px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px #00000010;
+        }
+
+        h1 {
+            color: #4f46e5;
+        }
+
+        .intro {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .question {
+            margin: 25px 0;
+        }
+
+        .question h3 {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: #f3f4f6;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        label:hover {
+            background: #e0e7ff;
+        }
+
+        button {
+            padding: 13px 24px;
+            border: none;
+            border-radius: 8px;
+            background: #4f46e5;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        button:disabled {
+            background: #888;
+            cursor: not-allowed;
+        }
+
+        #result {
+            display: none;
+            margin-top: 22px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #eef2ff;
+            color: #3730a3;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .confetti {
+            position: fixed;
+            top: -20px;
+            width: 10px;
+            height: 14px;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fall 3s linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .quiz {
+                width: 92%;
+                padding: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .confetti {
+                animation-duration: 1s;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">StudyNova 🎓</div>
+</header>
+
+<section class="quiz">
+
+    <h1>Quiz 3 - CSS Basics 🎨</h1>
+
+    <p class="intro">
+        Test your knowledge of CSS. Choose one answer for each question.
+    </p>
+
+    <div class="question">
+        <h3>1. What does CSS stand for?</h3>
+        <label><input type="radio" name="q1" value="a"> Cascading Style Sheets</label>
+        <label><input type="radio" name="q1" value="b"> Computer Style System</label>
+        <label><input type="radio" name="q1" value="c"> Creative Sheet Syntax</label>
+    </div>
+
+    <div class="question">
+        <h3>2. What is CSS mainly used for?</h3>
+        <label><input type="radio" name="q2" value="a"> Storing data</label>
+        <label><input type="radio" name="q2" value="b"> Styling web pages</label>
+        <label><input type="radio" name="q2" value="c"> Creating hardware</label>
+    </div>
+
+    <div class="question">
+        <h3>3. Which CSS property changes text color?</h3>
+        <label><input type="radio" name="q3" value="a"> font-style</label>
+        <label><input type="radio" name="q3" value="b"> background</label>
+        <label><input type="radio" name="q3" value="c"> color</label>
+    </div>
+
+    <div class="question">
+        <h3>4. Which property changes the background color?</h3>
+        <label><input type="radio" name="q4" value="a"> background-color</label>
+        <label><input type="radio" name="q4" value="b"> text-color</label>
+        <label><input type="radio" name="q4" value="c"> font-color</label>
+    </div>
+
+    <div class="question">
+        <h3>5. Which symbol selects a class in CSS?</h3>
+        <label><input type="radio" name="q5" value="a"> #</label>
+        <label><input type="radio" name="q5" value="b"> .</label>
+        <label><input type="radio" name="q5" value="c"> @</label>
+    </div>
+
+    <div class="question">
+        <h3>6. Which symbol selects an ID in CSS?</h3>
+        <label><input type="radio" name="q6" value="a"> .</label>
+        <label><input type="radio" name="q6" value="b"> *</label>
+        <label><input type="radio" name="q6" value="c"> #</label>
+    </div>
+
+    <div class="question">
+        <h3>7. Which property changes text size?</h3>
+        <label><input type="radio" name="q7" value="a"> font-size</label>
+        <label><input type="radio" name="q7" value="b"> text-weight</label>
+        <label><input type="radio" name="q7" value="c"> size-text</label>
+    </div>
+
+    <div class="question">
+        <h3>8. Which property makes text bold?</h3>
+        <label><input type="radio" name="q8" value="a"> font-style</label>
+        <label><input type="radio" name="q8" value="b"> font-weight</label>
+        <label><input type="radio" name="q8" value="c"> text-align</label>
+    </div>
+
+    <div class="question">
+        <h3>9. Which property aligns text to the center?</h3>
+        <label><input type="radio" name="q9" value="a"> text-position</label>
+        <label><input type="radio" name="q9" value="b"> align</label>
+        <label><input type="radio" name="q9" value="c"> text-align</label>
+    </div>
+
+    <div class="question">
+        <h3>10. Which CSS property adds space inside an element?</h3>
+        <label><input type="radio" name="q10" value="a"> padding</label>
+        <label><input type="radio" name="q10" value="b"> margin</label>
+        <label><input type="radio" name="q10" value="c"> border</label>
+    </div>
+
+    <div class="question">
+        <h3>11. Which property adds space outside an element?</h3>
+        <label><input type="radio" name="q11" value="a"> padding</label>
+        <label><input type="radio" name="q11" value="b"> margin</label>
+        <label><input type="radio" name="q11" value="c"> outline</label>
+    </div>
+
+    <div class="question">
+        <h3>12. Which property rounds the corners of a box?</h3>
+        <label><input type="radio" name="q12" value="a"> border-style</label>
+        <label><input type="radio" name="q12" value="b"> corner-round</label>
+        <label><input type="radio" name="q12" value="c"> border-radius</label>
+    </div>
+
+    <div class="question">
+        <h3>13. Which tag can contain internal CSS?</h3>
+        <label><input type="radio" name="q13" value="a"> &lt;style&gt;</label>
+        <label><input type="radio" name="q13" value="b"> &lt;css&gt;</label>
+        <label><input type="radio" name="q13" value="c"> &lt;design&gt;</label>
+    </div>
+
+    <div class="question">
+        <h3>14. Which HTML attribute links an external CSS file?</h3>
+        <label><input type="radio" name="q14" value="a"> src</label>
+        <label><input type="radio" name="q14" value="b"> href</label>
+        <label><input type="radio" name="q14" value="c"> alt</label>
+    </div>
+
+    <div class="question">
+        <h3>15. Which CSS property adds a shadow around a box?</h3>
+        <label><input type="radio" name="q15" value="a"> text-shadow</label>
+        <label><input type="radio" name="q15" value="b"> border-shadow</label>
+        <label><input type="radio" name="q15" value="c"> box-shadow</label>
+    </div>
+
+    <button type="button" id="submitQuiz" onclick="checkQuiz()">
+        Submit Quiz
+    </button>
+
+    <div id="result" aria-live="polite"></div>
+
+    <a href="lesson3.html" class="back">← Back to Lesson 3</a>
+
+</section>
+
+<!-- Shared StudyNova XP and streak system: load only once -->
+<script src="studynova.js"></script>
+
+<script>
+function showConfetti() {
+    const colors = [
+        "#f43f5e", "#f59e0b", "#22c55e",
+        "#3b82f6", "#a855f7", "#ec4899"
+    ];
+
+    // Clear any confetti created by this quiz before making a new set.
+    document.querySelectorAll(".confetti").forEach(piece => piece.remove());
+
+    for (let i = 0; i < 110; i++) {
+        const piece = document.createElement("span");
+        piece.className = "confetti";
+
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        piece.style.animationDelay = Math.random() * 0.8 + "s";
+        piece.style.animationDuration =
+            (2.5 + Math.random() * 2) + "s";
+
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 5500);
+    }
+}
+
+function checkQuiz() {
+    const answers = {
+        q1: "a",
+        q2: "b",
+        q3: "c",
+        q4: "a",
+        q5: "b",
+        q6: "c",
+        q7: "a",
+        q8: "b",
+        q9: "c",
+        q10: "a",
+        q11: "b",
+        q12: "c",
+        q13: "a",
+        q14: "b",
+        q15: "c"
+    };
+
+    const result = document.getElementById("result");
+    const submitButton = document.getElementById("submitQuiz");
+
+    if (submitButton.disabled) return;
+
+    let score = 0;
+    let unanswered = 0;
+
+    for (const question in answers) {
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+
+        if (!selected) {
+            unanswered++;
+        } else if (selected.value === answers[question]) {
+            score++;
+        }
+    }
+
+    result.style.display = "block";
+
+    if (unanswered > 0) {
+        result.textContent =
+            "Please answer all questions. Unanswered: " + unanswered;
+        return;
+    }
+
+    const total = 15;
+    const percentage = Math.round((score / total) * 100);
+
+    // Save quiz score for StudyNova progress and achievements.
+    localStorage.setItem("quiz3Score", String(score));
+    localStorage.setItem("quiz3Total", String(total));
+    localStorage.setItem("quiz3Completed", "true");
+
+    if (score === total) {
+        result.innerHTML =
+            "🏆 PERFECT SCORE! 🎉<br>Your Score: " + score + " / " + total;
+    } else if (percentage >= 80) {
+        result.innerHTML =
+            "🎉 GREAT JOB!<br>Your Score: " + score + " / " + total +
+            "<br>" + percentage + "%";
+    } else {
+        result.textContent =
+            "Your Score: " + score + " / " + total +
+            " (" + percentage + "%)";
+    }
+
+    if (percentage >= 80) {
+        // Use one celebration system only to prevent double confetti.
+        if (window.StudyNova &&
+            typeof window.StudyNova.celebrateQuiz === "function") {
+            window.StudyNova.celebrateQuiz(score, total);
+        } else {
+            showConfetti();
+        }
+    }
+
+    if (window.StudyNova &&
+        typeof window.StudyNova.refresh === "function") {
+        window.StudyNova.refresh();
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Quiz Submitted ✓";
+}
+</script>
+
+</body>
+</html>
